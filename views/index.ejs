@@ -5,16 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .pessoa {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .pessoa h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .pessoa p {
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: #f44336;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border-color: #f44336;
+        }
+        .pessoa a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .voltar-button {
+            margin-top: 20px;
+        }
+        .voltar-button a{
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body>  
+<body>
     <% pessoas.forEach((pessoa) => { %>
-        <p>
-        <%= pessoa.id %><br/>
-        <%= pessoa.nome %><br/>
-        <%= pessoa.sobrenome %><br/>
-        <%= pessoa.idade %><br/>
-        <%= pessoa.altura %></p>
-        <button><a href="/pessoas/delete?id=<%= pessoa.id %>">Delete</a></button>
+        <div class="pessoa">
+            <h2>ID: <%= pessoa.id %></h2>
+            <p>Nome: <%= pessoa.nome %></p>
+            <p>Sobrenome: <%= pessoa.sobrenome %></p>
+            <p>Idade: <%= pessoa.idade %></p>
+            <p>Altura: <%= pessoa.altura %></p>
+            <button><a href="/pessoas/delete?id=<%= pessoa.id %>">Delete</a></button>
+        </div>
     <% }) %>
+    <button class="voltar-button"><a href="/pessoas/criar">Voltar</a></button>
 </body>
 </html>
